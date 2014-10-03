@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="engine" class="com.apress.isf.java.service.LocalSearchEngine"></bean>
+	<bean id="type" class="com.apress.isf.java.model.Type">
+		<property name="name" value="pdf"></property>
+		<property name="desc" value="pdf"></property>
+		<property name="extension" value="file pdf"></property>
+	</bean>
+	
+	<!--  
+	Type type = new Type();
+		type.setName("pdf");
+		type.setExtension("pdf");
+		type.setDesc("file pdf");
+		 -->
+</beans>
