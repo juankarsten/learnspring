@@ -3,6 +3,8 @@ package com.apress.isf.java.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.apress.isf.java.data.DocumentDAO;
@@ -12,7 +14,17 @@ import com.apress.isf.java.model.Type;
 public class LocalSearchEngine implements SearchEngine{
 	private DocumentDAO documentDAO;
 	
+	private static final Logger log = 
+			LoggerFactory.getLogger(LocalSearchEngine.class);
+	
+	public LocalSearchEngine() {
+		if(log.isDebugEnabled())
+			log.debug("create"+this);
+	}
+	
 	public void setDocumentDAO(DocumentDAO documentDAO) {
+		if(log.isDebugEnabled())
+			log.debug("create dao"+documentDAO);
 		this.documentDAO = documentDAO;
 	}
 	public DocumentDAO getDocumentDAO() {
