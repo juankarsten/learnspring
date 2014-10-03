@@ -3,6 +3,8 @@ package com.apress.isf.java.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.apress.isf.java.model.Document;
 
 public class DocumentRepository implements DocumentDAO {

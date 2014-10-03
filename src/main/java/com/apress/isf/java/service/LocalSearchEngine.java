@@ -3,6 +3,8 @@ package com.apress.isf.java.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.apress.isf.java.data.DocumentDAO;
 import com.apress.isf.java.model.Document;
 import com.apress.isf.java.model.Type;
