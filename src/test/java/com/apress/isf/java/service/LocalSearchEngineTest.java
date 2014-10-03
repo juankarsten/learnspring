@@ -20,7 +20,7 @@ public class LocalSearchEngineTest {
 		context = 
 				new ClassPathXmlApplicationContext("META-INF/spring/beancontext.xml");
 		localSearchEngine = context.getBean(SearchEngine.class);
-		type = context.getBean(Type.class);
+		type = context.getBean("webType",Type.class);
 	}
 	
 	@Test
@@ -31,19 +31,15 @@ public class LocalSearchEngineTest {
 		
 		List<Document> documents = localSearchEngine.findByType(type);
 		Assert.assertEquals(1, documents.size());
-		Assert.assertEquals("Book", documents.get(0).getName());
+		Assert.assertEquals("Pro Spring Security Book", documents.get(0).getName());
 		
 	}
 	
 	@Test
 	public void listAll(){
-		Type type = new Type();
-		type.setName("pdf");
-		type.setExtension("pdf");
-		type.setDesc("file pdf");
 		
-		List<Document> documents = localSearchEngine.findByType(type);
-		Assert.assertEquals(1, documents.size());
+		List<Document> documents = localSearchEngine.listAll();
+		Assert.assertEquals(4, documents.size());
 		
 	}
 }

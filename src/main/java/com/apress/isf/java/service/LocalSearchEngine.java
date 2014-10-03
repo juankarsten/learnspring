@@ -3,15 +3,24 @@ package com.apress.isf.java.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.apress.isf.java.data.DocumentDAO;
 import com.apress.isf.java.model.Document;
 import com.apress.isf.java.model.Type;
 
 public class LocalSearchEngine implements SearchEngine{
-
+	private DocumentDAO documentDAO;
+	
+	public void setDocumentDAO(DocumentDAO documentDAO) {
+		this.documentDAO = documentDAO;
+	}
+	public DocumentDAO getDocumentDAO() {
+		return documentDAO;
+	}
+	
 	@Override
 	public List<Document> findByType(Type type) {
 		List<Document> result = new ArrayList<Document>();
-		List<Document> list = storage();
+		List<Document> list = listAll();
 		for(Document document : list){
 			if(document.getType().getName().equals(type.getName())){
 				result.add(document);
@@ -22,23 +31,7 @@ public class LocalSearchEngine implements SearchEngine{
 
 	@Override
 	public List<Document> listAll() {
-		return storage();
+		return getDocumentDAO().getAll();
 	}
 
-	private List<Document> storage(){
-		Type type = new Type();
-		type.setName("pdf");
-		type.setExtension("pdf");
-		type.setDesc("file pdf");
-		
-		Document document = new Document();
-		document.setName("Book");
-		document.setType(type);
-		document.setLocation("/book/Document");
-		
-		List<Document> list = new ArrayList<Document>();
-		list.add(document);
-		
-		return list;
-	}
 }
