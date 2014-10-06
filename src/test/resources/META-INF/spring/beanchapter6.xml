@@ -3,6 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="menuResource" class="com.apress.isf.spring.view.MenuResourceLoader">
+		<property name="resourceLoader" ></property>
+	</bean>
+	
 	<bean id="menu" class="com.apress.isf.spring.view.Menu">
 		<property name="resource" value="classpath:META-INF/data/menu.txt"></property>
 	</bean>
